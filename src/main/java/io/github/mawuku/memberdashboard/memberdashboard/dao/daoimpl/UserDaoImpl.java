@@ -27,7 +27,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserById(Long val) {
-        return null;
+        User user = userRepo.getById(val);
+        return user;
     }
 
     @Override

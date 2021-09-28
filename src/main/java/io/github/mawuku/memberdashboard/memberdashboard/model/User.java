@@ -35,7 +35,7 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_fk")
     private Address address;
 
@@ -53,6 +53,28 @@ public class User implements Serializable {
     @JoinColumn(name = "member_fk")
     @Column(name = "payments")
     private List<Payment> payments;
+
+    @Transient
+    private String monthOfBirth;
+
+    public String getMonthOfBirth() {
+        return monthOfBirth;
+    }
+
+    public void setMonthOfBirth(String monthOfBirth) {
+        this.monthOfBirth = monthOfBirth;
+    }
+
+    public String getDayOfBirth() {
+        return dayOfBirth;
+    }
+
+    public void setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
+    }
+
+    @Transient
+    private String dayOfBirth;
 
     public long getId() {
         return id;

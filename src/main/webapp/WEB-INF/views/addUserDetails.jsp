@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--<!doctype html>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
@@ -163,6 +164,8 @@
       </ol>
 
       <!-- Add New Member Details-->
+      <c:url var="add_user_url" value="/memberList/addUserDetails"/>
+      <form:form action="${add_user_url}" method="POST" modelAttribute="cmd">
       <div class="container rounded bg-light mt-5 mb-5">
         <div class="row">
           <div class="col-md-3 border-right">
@@ -174,87 +177,126 @@
                 <h4 class="text-right">Member Details</h4>
               </div>
               <div class="row mt-2">
-                <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" placeholder="surname" value=""></div>
+                <div class="col-md-6">
+                <label class="labels">Surname</label>
+                <form:input path="user.surname" type="text" class="form-control" placeholder="surname" value=""/>
+                </div>
                 <!--<div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname" readonly></div> -->
               </div>
               <div class="row mt-2">
-                <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                <div class="col-md-6"><label class="labels">Other Name</label><input type="text" class="form-control" value="" placeholder="other name"></div>
+                <div class="col-md-6">
+                  <label class="labels">First Name</label>
+                  <form:input path="user.firstName" type="text" class="form-control" placeholder="first name" value=""/>
+                </div>
+                <div class="col-md-6">
+                  <label class="labels">Other Name</label>
+                  <form:input path="user.otherName" type="text" class="form-control" value="" placeholder="other name"/>
+                </div>
               </div>
-              <div class="row mt-3">
+              <div class="row mt-2">
                 <div class="col-md-6">
                   <label class="labels">Birth month</label>
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                  </select>
+                  <form:select path="user.monthOfBirth" class="custom-select mr-sm-2" id="inlineFormCustomSelectM">
+                    <form:option selected="true" value="Choose.." label="choose.." />
+                    <form:option value="Jan" label="Janaury" />
+                    <form:option value="Feb" label="Febraury" />
+                    <form:option value="Mar" label="March" />
+                    <form:option value="Apr" label="April" />
+                    <form:option value="May" label="May" />
+                    <form:option value="Jun" label="June" />
+                    <form:option value="Jul" label="July" />
+                    <form:option value="Aug" label="August" />
+                    <form:option value="Sep" label="September" />
+                    <form:option value="Oct" label="October" />
+                    <form:option value="Nov" label="November" />
+                    <form:option value="Dec" label="December" />
+                  </form:select>
                 </div>
                 <div class="col-md-6">
                   <label class="labels">Birth Day</label>
-                  <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>Choose...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="3">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="31">31</option>
-                  </select>
+                  <form:select path="user.dayOfBirth" class="custom-select mr-sm-2" id="inlineFormCustomSelectD">
+                    <form:option selected="true" value="choose.." label="choose.."/>
+                    <form:option value="1" label="1"/>
+                    <form:option value="2" label="2"/>
+                    <form:option value="3" label="3"/>
+                    <form:option value="4" label="4"/>
+                    <form:option value="5" label="5"/>
+                    <form:option value="6" label="6"/>
+                    <form:option value="7" label="7"/>
+                    <form:option value="8" label="8"/>
+                    <form:option value="9" label="9"/>
+                    <form:option value="10" label="10"/>
+                    <form:option value="11" label="11"/>
+                    <form:option value="12" label="12"/>
+                    <form:option value="13" label="13"/>
+                    <form:option value="14" label="14"/>
+                    <form:option value="15" label="15"/>
+                    <form:option value="16" label="16"/>
+                    <form:option value="17" label="17"/>
+                    <form:option value="18" label="18"/>
+                    <form:option value="19" label="19"/>
+                    <form:option value="20" label="20"/>
+                    <form:option value="21" label="21"/>
+                    <form:option value="22" label="22"/>
+                    <form:option value="23" label="24"/>
+                    <form:option value="24" label="24"/>
+                    <form:option value="25" label="25"/>
+                    <form:option value="26" label="26"/>
+                    <form:option value="27" label="27"/>
+                    <form:option value="28" label="28"/>
+                    <form:option value="29" label="29"/>
+                    <form:option value="30" label="30"/>
+                    <form:option value="31" label="31"/>
+                  </form:select>
                 </div>
-                <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="some-mail@something.com" value=""></div>
-                <div class="col-md-12"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="04XXXXXXXX, 02XXXXXXXX" value=""></div>
+                <div class="col-md-12 mt-2">
+                <label class="labels">Email</label>
+                <form:input path="user.email" type="text" class="form-control" placeholder="some-mail@something.com" value=""/>
+                </div>
+                <div class="col-md-12 mt-2">
+                <label class="labels">Phone Number</label>
+                <form:input path="user.phoneNumber" type="text" class="form-control" placeholder="04XXXXXXXX, 02XXXXXXXX" value="" />
+                </div>
               </div>
-              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Add member</button></div>
+<%--              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Add member</button></div>--%>
+               <div class="mt-5 text-center"><input type="submit" value="Add Member" class="btn btn-primary profile-button" ></div>
+
             </div>
           </div>
           <div class="col-md-4">
             <div class="p-3 py-5">
               <div class="d-flex justify-content-between align-items-center experience"><span></span><span class="border px-3 p-1 add-experience"><i class="fas fa-home"></i>&nbsp;Address</span></div><br>
               <div class="row pl-3">
-                <div class="col-md-6"><label class="labels">Unit No(Optional)</label><input type="text" class="form-control" placeholder="10, 20, 35" value=""></div>
-                <div class="col-md-6 pr-5"><label class="labels">Street No</label><input type="text" class="form-control" value="" placeholder="Street No" readonly></div>
+                <div class="col-md-6">
+                  <label class="labels">Unit No(Optional)</label>
+                  <form:input path="address.unitNumber" type="text" class="form-control" placeholder="10, 20, 35" value="" />
+                </div>
+                <div class="col-md-6 pr-5">
+                  <label class="labels">Street No</label>
+                  <form:input path="address.streetNo" type="text" class="form-control" value="" placeholder="Street No" />
+                </div>
               </div>
-              <div class="col-md-12"><label class="labels">Street Name</label><input type="text" class="form-control" placeholder="Adelaide St, Elizabeth Rd" value=""></div>
-              <div class="col-md-12"><label class="labels">Suburb</label><input type="text" class="form-control" placeholder="Bankstown, Oxley Park, Bardia" value=""></div>
-              <div class="col-md-12"><label class="labels">Post Code</label><input type="text" class="form-control" placeholder="2760, 2547, 2000" value=""></div>
-              <div class="row mt-3">
-                <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" placeholder="" value="NSW"></div>
-                <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" value="Australia" placeholder=""></div>
+              <div class="col-md-12 mt-2">
+                <label class="labels">Street Name</label>
+                <form:input path="address.streetName" type="text" class="form-control" placeholder="Adelaide St, Elizabeth Rd" value="" />
+              </div>
+              <div class="col-md-12 mt-2">
+                <label class="labels">Suburb</label>
+                <form:input path="address.city" type="text" class="form-control" placeholder="Bankstown, Oxley Park, Bardia" value="" />
+              </div>
+              <div class="col-md-12 mt-2">
+                <label class="labels">Post Code</label>
+                <form:input path="address.postalCode" type="text" class="form-control" placeholder="2760, 2547, 2000" value="" />
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6">
+                  <label class="labels">State/Region</label>
+                  <form:input path="address.state" type="text" class="form-control" placeholder="" value="NSW" />
+                </div>
+                <div class="col-md-6">
+                  <label class="labels">Country</label>
+                  <form:input path="address.country" type="text" class="form-control" value="Australia" placeholder="" />
+                </div>
               </div>
             </div>
           </div>
@@ -262,6 +304,7 @@
       </div>
   </div>
 </div>
+</form:form>
       <!-- End of Add New Member Details-->
 
     </main>

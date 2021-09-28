@@ -189,7 +189,7 @@
               <td>${allUsers.phoneNumber}</td>
               <td>${allUsers.email}</td>
               <td>
-                   <a class="btn btn-primary mr-3" style="border-radius:15px" href="<spring:url value="/viewUserDetails"/>" type="button"><i class="fas fa-user-edit px-1"></i>Details</a>
+                   <a class="btn btn-primary mr-3" style="border-radius:15px" href="<spring:url value="/memberList/viewUserDetails/${allUsers.id}"/>" type="button"><i class="fas fa-user-edit px-1"></i>Details</a>
                    <a class="btn btn-success " style="border-radius:15px" href="#" type="button"><i class="fas fa-money-bill-alt px-1"></i>Payment</a>
 
 <%--                <button type="button" class="btn btn-primary btn-sm mr-3" style="border-radius:15px"><i class="fas fa-user-edit px-1"></i>Details</button>--%>

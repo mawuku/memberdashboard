@@ -25,6 +25,9 @@ public class Address implements Serializable {
     @Column(name = "unit_number")
     private String unitNumber;
 
+    @Column(name = "street_no")
+    private String streetNo;
+
     @Column(name = "street_number")
     private String streetName;
 
@@ -66,6 +69,14 @@ public class Address implements Serializable {
 
     public void setUnitNumber(String unitNumber) {
         this.unitNumber = unitNumber;
+    }
+
+    public String getStreetNo() {
+        return streetNo;
+    }
+
+    public void setStreetNo(String streetNo) {
+        this.streetNo = streetNo;
     }
 
     public String getStreetName() {
@@ -113,6 +124,7 @@ public class Address implements Serializable {
         return "Address{" +
                 "id=" + id +
                 ", unitNumber='" + unitNumber + '\'' +
+                ", streetNo='" + streetNo + '\'' +
                 ", streetName='" + streetName + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
@@ -131,6 +143,7 @@ public class Address implements Serializable {
                 && (otherAddress.getPostalCode().equals(postalCode))
                 && (otherAddress.getCity().equals(city))
                 && (otherAddress.getStreetName().equals(streetName))
+                && (otherAddress.getStreetNo().equals(getStreetNo()))
                 && (otherAddress.getUnitNumber().equals(unitNumber)))
 
             return true;
@@ -144,7 +157,9 @@ public class Address implements Serializable {
         result = 31 * result + postalCode.hashCode();
         result = 31 * result + city.hashCode();
         result = 31 * result + streetName.hashCode();
+        result = 31 * result + streetNo.hashCode();
         result = 31 * result + unitNumber.hashCode();
+
         return result;
     }
 

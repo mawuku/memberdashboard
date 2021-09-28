@@ -174,70 +174,28 @@
                                 <h4 class="text-right">Member Details</h4>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" placeholder="surname" value="" readonly></div>
+                                <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" placeholder="surname" value="${user.surname}" readonly></div>
                                 <!--<div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname" readonly></div> -->
                             </div>
                             <div class="row mt-2">
-                                <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="first name" value="" readonly></div>
-                                <div class="col-md-6"><label class="labels">Other Name</label><input type="text" class="form-control" value="" placeholder="other name" readonly></div>
+                                <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="first name" value="${user.firstName}" readonly></div>
+                                <div class="col-md-6"><label class="labels">Other Name</label><input type="text" class="form-control" value="${user.otherName}" placeholder="other name" readonly></div>
                             </div>
-                            <div class="row mt-3">
+                            <div class="row mt-2">
                                 <div class="col-md-6">
                                     <label class="labels" >Birth month</label>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected readonly>Choose...</option>
-                                        <option value="1">January</option>
-                                        <option value="2">February</option>
-                                        <option value="3">March</option>
-                                        <option value="4">April</option>
-                                        <option value="5">May</option>
-                                        <option value="6">June</option>
-                                        <option value="7">July</option>
-                                        <option value="8">August</option>
-                                        <option value="9">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelectM">
+                                        <option disabled selected readonly>${user.id}</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="labels">Birth Day</label>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected readonly>Choose...</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="3">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                        <option value="24">24</option>
-                                        <option value="25">25</option>
-                                        <option value="26">26</option>
-                                        <option value="27">27</option>
-                                        <option value="28">28</option>
-                                        <option value="29">29</option>
-                                        <option value="31">31</option>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelectD">
+                                        <option disabled selected readonly>${user.id}</option>
                                     </select>
                                 </div>
-                                <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="some-mail@something.com" value="" readonly></div>
-                                <div class="col-md-12"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="04XXXXXXXX, 02XXXXXXXX" value="" readonly></div>
+                                <div class="col-md-12 mt-2"><label class="labels">Email</label><input type="text" class="form-control" placeholder="some-mail@something.com" value="${user.email}" readonly></div>
+                                <div class="col-md-12 mt-2"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="04XXXXXXXX, 02XXXXXXXX" value="${user.phoneNumber}" readonly></div>
                             </div>
                             <div class="mt-5 text-center"><a class="btn btn-danger profile-button" href="<spring:url value='/editUserDetails'/>"> Edit Member Details</a></div>
                         </div>
@@ -246,15 +204,15 @@
                         <div class="p-3 py-5">
                             <div class="d-flex justify-content-between align-items-center experience"><span></span><span class="border px-3 p-1 add-experience"><i class="fas fa-home"></i>&nbsp;Address</span></div><br>
                             <div class="row pl-3">
-                                <div class="col-md-6"><label class="labels">Unit No(Optional)</label><input type="text" class="form-control" placeholder="10, 20, 35" value="" readonly></div>
-                                <div class="col-md-6 pr-5"><label class="labels">Street No</label><input type="text" class="form-control" value="" placeholder="Street No" readonly></div>
+                                <div class="col-md-6"><label class="labels">Unit No(Optional)</label><input type="text" class="form-control" placeholder="10, 20, 35" value="${user.address.unitNumber}" readonly></div>
+                                <div class="col-md-6 pr-5"><label class="labels">Street No</label><input type="text" class="form-control" value="${user.address.streetNo}" placeholder="Street No" readonly></div>
                             </div>
-                            <div class="col-md-12"><label class="labels">Street Name</label><input type="text" class="form-control" placeholder="Adelaide St, Elizabeth Rd" value="" readonly></div>
-                            <div class="col-md-12"><label class="labels">Suburb</label><input type="text" class="form-control" placeholder="Bankstown, Oxley Park, Bardia" value="" readonly></div>
-                            <div class="col-md-12"><label class="labels">Post Code</label><input type="text" class="form-control" placeholder="2760, 2547, 2000" value="" readonly></div>
-                            <div class="row mt-3">
-                                <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" placeholder="" value="NSW" readonly></div>
-                                <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" value="Australia" placeholder="" readonly></div>
+                            <div class="col-md-12 mt-2"><label class="labels">Street Name</label><input type="text" class="form-control" placeholder="Adelaide St, Elizabeth Rd" value="${user.address.streetName}" disabled></div>
+                            <div class="col-md-12  mt-2"><label class="labels">Suburb</label><input type="text" class="form-control" placeholder="Bankstown, Oxley Park, Bardia" value="${user.address.city}" readonly></div>
+                            <div class="col-md-12 mt-2"><label class="labels">Post Code</label><input type="text" class="form-control" placeholder="2760, 2547, 2000" value="${user.address.postalCode}" readonly></div>
+                            <div class="row mt-2">
+                                <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" placeholder="" value="${user.address.state}" readonly></div>
+                                <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" value="${user.address.country}" placeholder="" readonly></div>
                             </div>
                         </div>
                     </div>
