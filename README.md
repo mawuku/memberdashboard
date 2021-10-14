@@ -1,6 +1,11 @@
 # memberdashboard
+![GitHub last commit](https://img.shields.io/github/last-commit/mawuku/memberdashboard)
 ![](https://img.shields.io/badge/visibility-public-orange?style=plastic&logo=appveyor)
 ![https://github.com/mawuku/memberdashboard](https://img.shields.io/badge/license%20-MIT-green?style=plastic&logo=appveyor)
+
+![GitHub pull requests](https://img.shields.io/github/issues-pr/mawuku/memberdashboard?style=plastic)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/mawuku/memberdashboard)
+
 
 ![GitHub forks](https://img.shields.io/github/forks/mawuku/memberdashboard?style=social)
 ![GitHub Repo stars](https://img.shields.io/github/stars/mawuku/memberdashboard?style=social)
