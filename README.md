@@ -1,6 +1,6 @@
 # memberdashboard
 ![](https://img.shields.io/badge/visibility-public-orange)
-![GitHub](https://img.shields.io/github/license/:mawuku/:memberdashboard)
+![https://github.com/mawuku/memberdashboard](https://img.shields.io/badge/license%20-MIT-green)
 
 A simple dashboard for a small organisation. 
 Updating the `readme.md` to test github pull request builder.
