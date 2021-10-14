@@ -1,5 +1,5 @@
 # memberdashboard
-[img src="https://img.shields.io/badge/important.svg?logo=Docker"](#)
+![GitHub](https://img.shields.io/github/license/mawuku/memberdashboard?style=plastic)
 
 A simple dashboard for a small organisation. 
 Updating the `readme.md` to test github pull request builder.
