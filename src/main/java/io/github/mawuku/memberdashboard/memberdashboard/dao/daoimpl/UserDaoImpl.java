@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void editUser(User val) {
-
+        userRepo.save(val);
     }
 
     @Override

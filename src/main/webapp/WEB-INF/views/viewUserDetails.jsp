@@ -197,7 +197,7 @@
                                 <div class="col-md-12 mt-2"><label class="labels">Email</label><input type="text" class="form-control" placeholder="some-mail@something.com" value="${user.email}" readonly></div>
                                 <div class="col-md-12 mt-2"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="04XXXXXXXX, 02XXXXXXXX" value="${user.phoneNumber}" readonly></div>
                             </div>
-                            <div class="mt-5 text-center"><a class="btn btn-danger profile-button" href="<spring:url value='/editUserDetails'/>"> Edit Member Details</a></div>
+                            <div class="mt-5 text-center"><a class="btn btn-danger profile-button" href="<spring:url value='/memberList/editUserDetails/${user.id}'/>"> Edit Member Details</a></div>
                         </div>
                     </div>
                     <div class="col-md-4">

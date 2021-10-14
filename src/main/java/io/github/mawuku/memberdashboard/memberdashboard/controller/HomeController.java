@@ -64,7 +64,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/memberList/addUserDetails", method = RequestMethod.POST)
-    public String addProductPost(@ModelAttribute("cmd") RegisterCmd cmd, HttpServletRequest request) {
+    public String addUserPost(@ModelAttribute("cmd") RegisterCmd cmd, HttpServletRequest request) {
 
        // System.out.println(cmd.toString());
         cmd.getUser().setAddress(cmd.getAddress());
@@ -75,9 +75,22 @@ public class HomeController {
     }
 
 
-    @RequestMapping("/editUserDetails")
-    public String editUserDetails() {
+    @RequestMapping("/memberList/editUserDetails/{id}")
+    public String editUserDetails(@PathVariable Long id, Model model) {
+
+        User user = mem.getUserById(id);
+        model.addAttribute(user);
+
         return "editUserDetails";
     }
 
+    @RequestMapping(value = "/memberList/editUserDetails", method = RequestMethod.POST)
+    public String editUserDetailsPost(@ModelAttribute("user") User user, Model model, HttpServletRequest request) {
+
+
+        user.setDateOfBirth(DateUtility.convertToLocalDate(user.getDayOfBirth(),user.getMonthOfBirth()));
+        mem.editUser(user);
+
+        return "redirect:/memberList";
+    }
 }
