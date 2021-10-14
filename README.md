@@ -5,6 +5,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/mawuku/memberdashboard?style=social)
 ![GitHub Repo stars](https://img.shields.io/github/stars/mawuku/memberdashboard?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/mawuku/memberdashboard?style=social)
+![GitHub followers](https://img.shields.io/github/followers/mawuku?style=social)
 
 
 A simple dashboard for a small organisation. 
