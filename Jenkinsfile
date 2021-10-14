@@ -6,13 +6,14 @@ pipeline {
 		  steps {
 		        checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github_pull_request', url: 'https://github.com/mawuku/memberdashboard']]])
                 echo 'Hello World'
+                script {
 				if (fileExists('README.md')) {
 					echo 'passed'
 				  } else {
 					echo 'No'
 					sh 'exit 1'
 				}
-
+               }
             }
         }
     }
