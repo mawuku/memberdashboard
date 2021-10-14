@@ -1,4 +1,5 @@
 # memberdashboard
+![](https://img.shields.io/badge/visibility-public-orange)
 ![GitHub](https://img.shields.io/github/license/:mawuku/:memberdashboard)
 
 A simple dashboard for a small organisation. 
