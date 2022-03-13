@@ -6,6 +6,7 @@ import io.github.mawuku.memberdashboard.memberdashboard.model.Address;
 import io.github.mawuku.memberdashboard.memberdashboard.model.Gender;
 import io.github.mawuku.memberdashboard.memberdashboard.model.Payment;
 import io.github.mawuku.memberdashboard.memberdashboard.model.User;
+import io.github.mawuku.memberdashboard.memberdashboard.utility.DateUtility;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,6 +20,8 @@ public class UserBuilder {
     private String email;
     private Address address;
     private LocalDate dateOfBirth;
+    private String monthOfBirth;
+    private String dayOfBirth;
     private String phoneNumber;
     private Enum gender;
     private List<Payment> payments;
@@ -27,6 +30,16 @@ public class UserBuilder {
 
     public UserBuilder withId (long val) {
         this.id = val;
+        return this;
+    }
+
+    public UserBuilder withSurname(String val) {
+        surname = val;
+        return this;
+    }
+
+    public UserBuilder withFirstName(String val) {
+        firstName = val;
         return this;
     }
 
@@ -47,6 +60,16 @@ public class UserBuilder {
 
     public UserBuilder withDateOfBirth(LocalDate val) {
         dateOfBirth = val;
+        return this;
+    }
+
+    public UserBuilder withMonthOfBirth(String val) {
+        monthOfBirth = val;
+        return this;
+    }
+
+    public UserBuilder withDayOfBirth(String val) {
+        dayOfBirth = val;
         return this;
     }
 
@@ -74,9 +97,16 @@ public class UserBuilder {
         user.setOtherName(otherName);
         user.setEmail(email);
         user.setGender(gender);
+        user.setDateOfBirth(dateOfBirth);
+        user.setDayOfBirth(dayOfBirth);
+        user.setMonthOfBirth(monthOfBirth);
         user.setPhoneNumber(phoneNumber);
         user.setAddress(address);
         user.setPayments(payments);
+
+        if(user.getDateOfBirth() == null) {
+            user.setDateOfBirth(DateUtility.convertToLocalDate(user.getDayOfBirth(),user.getMonthOfBirth()));
+        }
 
         return user;
     }

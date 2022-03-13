@@ -185,13 +185,13 @@
                                 <div class="col-md-6">
                                     <label class="labels" >Birth month</label>
                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelectM">
-                                        <option disabled selected readonly>${user.id}</option>
+                                        <option disabled selected readonly>${user.monthOfBirth}</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="labels">Birth Day</label>
                                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelectD">
-                                        <option disabled selected readonly>${user.id}</option>
+                                        <option disabled selected readonly>${user.dayOfBirth}</option>
                                     </select>
                                 </div>
                                 <div class="col-md-12 mt-2"><label class="labels">Email</label><input type="text" class="form-control" placeholder="some-mail@something.com" value="${user.email}" readonly></div>

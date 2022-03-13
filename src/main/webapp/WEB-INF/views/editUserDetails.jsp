@@ -198,7 +198,7 @@
                                 <div class="col-md-6">
                                     <label class="labels">Birth month</label>
                                     <form:select path="monthOfBirth" class="custom-select mr-sm-2" id="inlineFormCustomSelectM">
-                                        <form:option selected="true" value="${user.id}" label="${user.id}" />
+                                        <form:option selected="true" value="${user.monthOfBirth}" label="${user.monthOfBirth}" />
                                         <form:option value="Jan" label="Janaury" />
                                         <form:option value="Feb" label="Febraury" />
                                         <form:option value="Mar" label="March" />
@@ -216,7 +216,7 @@
                                 <div class="col-md-6">
                                     <label class="labels">Birth Day</label>
                                     <form:select path="dayOfBirth" class="custom-select mr-sm-2" id="inlineFormCustomSelectD">
-                                        <form:option selected="true" value="${user.id}" label="${user.id}"/>
+                                        <form:option selected="true" value="${user.dayOfBirth}" label="${user.dayOfBirth}"/>
                                         <form:option value="1" label="1"/>
                                         <form:option value="2" label="2"/>
                                         <form:option value="3" label="3"/>

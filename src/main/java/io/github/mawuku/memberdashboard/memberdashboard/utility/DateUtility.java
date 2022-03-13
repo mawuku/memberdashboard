@@ -1,11 +1,14 @@
 package io.github.mawuku.memberdashboard.memberdashboard.utility;
 
+import io.github.mawuku.memberdashboard.memberdashboard.model.User;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @Component
@@ -20,6 +23,31 @@ public class DateUtility {
 
         return localDate;
     }
+
+    private static List<String> splitDate(LocalDate date){
+        List<String> dateComponent = new ArrayList<String>();
+
+        String formattedDate = date.format(DateTimeFormatter.ofPattern("yyyy-MMM-dd", Locale.ENGLISH));
+        String[] splitDate = formattedDate.split("-");
+
+        dateComponent.add(splitDate[0]);
+        dateComponent.add(splitDate[1]);
+        dateComponent.add(splitDate[2]);
+
+        return dateComponent;
+    }
+
+    public static User adjustUserDate(User user){
+        List<String> dateComponent = new ArrayList<String>();
+
+        dateComponent = splitDate(user.getDateOfBirth());
+        user.setDayOfBirth(dateComponent.get(2));
+        user.setMonthOfBirth(dateComponent.get(1));
+
+        return user;
+    }
+
+
 
     private static String buildDate(String day, String month) {
 
