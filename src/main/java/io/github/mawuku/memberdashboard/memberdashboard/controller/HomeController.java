@@ -6,6 +6,7 @@ import io.github.mawuku.memberdashboard.memberdashboard.dao.daoimpl.UserDaoImpl;
 import io.github.mawuku.memberdashboard.memberdashboard.model.Payment;
 import io.github.mawuku.memberdashboard.memberdashboard.model.RegisterCmd;
 import io.github.mawuku.memberdashboard.memberdashboard.model.User;
+import io.github.mawuku.memberdashboard.memberdashboard.model.UserPaymentCmd;
 import io.github.mawuku.memberdashboard.memberdashboard.utility.DateUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,8 @@ public class HomeController {
     private UserDao mem;
     @Autowired
     private PaymentDao pay;
+    @Autowired
+    private UserPaymentCmd userPaymentDetails;
 
     @RequestMapping("/")
     public String home() {
@@ -49,8 +52,8 @@ public class HomeController {
     public String getUserDetailsView(@PathVariable Long id, Model model) {
 
         User user = mem.getUserById(id);
-
-        model.addAttribute(user);
+        User user1 = DateUtility.adjustUserDate(user);
+        model.addAttribute(user1);
 
         return "viewUserDetails";
     }
@@ -79,6 +82,7 @@ public class HomeController {
     public String editUserDetails(@PathVariable Long id, Model model) {
 
         User user = mem.getUserById(id);
+        user = DateUtility.adjustUserDate(user);
         model.addAttribute(user);
 
         return "editUserDetails";
@@ -92,5 +96,17 @@ public class HomeController {
         mem.editUser(user);
 
         return "redirect:/memberList";
+    }
+
+    @RequestMapping("/memberList/paymentDetails/{id}")
+    public String viewUserPaymentDetails(@PathVariable Long id, Model model) {
+
+        User userWithPayment = mem.getUserById(id);
+        List<Payment> userPayments = userWithPayment.getPayments();
+        userPaymentDetails.setUser(userWithPayment);
+        userPaymentDetails.setUserPayment(userPayments);
+
+        model.addAttribute("userPaymentDetails", userPaymentDetails);
+        return "paymentDetails";
     }
 }

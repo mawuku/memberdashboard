@@ -12,6 +12,7 @@ public class AddressBuilder {
 
     private long id;
     private String unitNumber;
+    private String streetNumber;
     private String streetName;
     private String city;
     private String state;
@@ -28,6 +29,11 @@ public class AddressBuilder {
 
     public AddressBuilder withUnitNumber(String val) {
         unitNumber = val;
+        return this;
+    }
+
+    public AddressBuilder withStreetNumber(String val) {
+        streetNumber = val;
         return this;
     }
 
@@ -69,6 +75,7 @@ public class AddressBuilder {
         add.setState(state);
         add.setPostalCode(postalCode);
         add.setCity(city);
+        add.setStreetNo(streetNumber);
         add.setStreetName(streetName);
         add.setUnitNumber(unitNumber);
         add.setUsers(users);

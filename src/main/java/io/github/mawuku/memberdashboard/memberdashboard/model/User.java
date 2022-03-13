@@ -57,6 +57,9 @@ public class User implements Serializable {
     @Transient
     private String monthOfBirth;
 
+    @Transient
+    private String dayOfBirth;
+
     public String getMonthOfBirth() {
         return monthOfBirth;
     }
@@ -73,8 +76,7 @@ public class User implements Serializable {
         this.dayOfBirth = dayOfBirth;
     }
 
-    @Transient
-    private String dayOfBirth;
+
 
     public long getId() {
         return id;

@@ -2,6 +2,7 @@ package io.github.mawuku.memberdashboard.memberdashboard.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -24,6 +25,9 @@ public class Payment implements Serializable {
 
     @Column(name = "timestamp")
     private LocalTime timeStamp;
+
+    @Column(name = "date")
+    private LocalDate transactionDate;
 
     @Column(name = "type")
     private String type;
@@ -96,11 +100,20 @@ public class Payment implements Serializable {
         this.payedTo = payedTo;
     }
 
+    public LocalDate getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(LocalDate transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
     @Override
     public String toString() {
         return "Payment{" +
                 "id=" + id +
                 ", timeStamp=" + timeStamp +
+                ", transactionDate=" + transactionDate +
                 ", type='" + type + '\'' +
                 ", amount=" + amount +
                 ", balance=" + balance +
