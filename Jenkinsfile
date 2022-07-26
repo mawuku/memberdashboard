@@ -1,20 +1,11 @@
-pipeline {
-    agent any
-
-    stages {
-        stage('Hello') {
-		  steps {
-		        checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github_pull_request', url: 'https://github.com/mawuku/memberdashboard']]])
-                echo 'Hello World'
-                script {
-				if (fileExists('README.md')) {
-					echo 'passed'
-				  } else {
-					echo 'No'
-					sh 'exit 1'
-				}
-               }
-            }
-        }
+node {
+  stage('SCM') {
+    checkout scm
+  }
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sunrise"
     }
+  }
 }
