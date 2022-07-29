@@ -1,4 +1,4 @@
-node {
+node ("sunrise") {
   stage('SCM') {
     checkout scm
   }
